@@ -1,33 +1,33 @@
 
 Onboarding Form
-								Form Input				Constraints					Notes
+						Form Input				Constraints			Notes
 Your Name			
-First Name 						Text box				size=64
-Last Name						Text box				size=64
+First Name 					Text box				size=64
+Last Name					Text box				size=64
 				
 Your Contact Details				
-Address							Text box				size=128					Address could be broken down into sub-categories, but since this is for record keeping, it would be of limited value
-Phone							Text box				numeric, size=64			If area codes are required, have a pre-filled dropdown list. 
-Email							Text box				valid email format 										
+Address						Text box				size=128			Address could be broken down into sub-categories, but since this is for record keeping, it would be of limited value
+Phone						Text box				numeric, size=64		If area codes are required, have a pre-filled dropdown list. 
+Email						Text box				valid email format 										
 				
 Your Banking Details				
 Account Name					Text box				size=128			
-Bank Name						Text box				size=64
-BSB Number						Text box				numeric, size=6
+Bank Name					Text box				size=64
+BSB Number					Text box				numeric, size=6
 Account Number					Text box				numeric, size=32
 			
 Tax Questions			
-Claim Tax Free Threshold?		Radio buttons			Yes/No						Radio chosen over checkbox to push user to making a conscious selection, rather than possibly skimming over it
+Claim Tax Free Threshold?			Radio buttons				Yes/No				Radio chosen over checkbox to push user to making a conscious selection, rather than possibly skimming over it
 (info tooltip)	"[short explanation of what tax free threshold means]" 																					
-Do you have a student loan?		Radio buttons			Yes/No
+Do you have a student loan?			Radio buttons				Yes/No
 (info tooltip)	"[short explanation of student loan affecting weekly tax payments]"
 			
 Your Super Details
-Fund Name						Text box				size=128	
-Fund Number						Text box				numeric, size=64
+Fund Name					Text box				size=128	
+Fund Number					Text box				numeric, size=64
 			
 
-Submit 							Button 												Inactive until all fields are filled and pass validation 
+Submit 						Button 									Inactive until all fields are filled and pass validation 
 																					
 Clicking submit shows the user the completed details and asks to check and confirm, before a final submission.
 
