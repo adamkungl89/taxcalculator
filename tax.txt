@@ -1,0 +1,59 @@
+
+Onboarding Form
+								Form Input				Constraints					Notes
+Your Name			
+First Name 						Text box				size=64
+Last Name						Text box				size=64
+				
+Your Contact Details				
+Address							Text box				size=128					Address could be broken down into sub-categories, but since this is for record keeping, it would be of limited value
+Phone							Text box				numeric, size=64			If area codes are required, have a pre-filled dropdown list. 
+Email							Text box				valid email format 										
+				
+Your Banking Details				
+Account Name					Text box				size=128			
+Bank Name						Text box				size=64
+BSB Number						Text box				numeric, size=6
+Account Number					Text box				numeric, size=32
+			
+Tax Questions			
+Claim Tax Free Threshold?		Radio buttons			Yes/No						Radio chosen over checkbox to push user to making a conscious selection, rather than possibly skimming over it
+(info tooltip)	"[short explanation of what tax free threshold means]" 																					
+Do you have a student loan?		Radio buttons			Yes/No
+(info tooltip)	"[short explanation of student loan affecting weekly tax payments]"
+			
+Your Super Details
+Fund Name						Text box				size=128	
+Fund Number						Text box				numeric, size=64
+			
+
+Submit 							Button 												Inactive until all fields are filled and pass validation 
+																					
+Clicking submit shows the user the completed details and asks to check and confirm, before a final submission.
+
+Validation/Constraints:
+
+-Regex validate constraints on inputs.
+
+-Responsive validation 
+Input boxes should highlight and explain errors as the user makes them.
+eg. if user tries to put a letter in BSBNumber, highlight box red & show red text underneath "BSB must include only numbers".
+
+-Submit button is non-responsive unless all validation constraints are fulfilled. All fields mandatory.
+
+-In choosing constraints...
+Minimal constraints are chosen, with over-estimated length. It is difficult to guess every possible valid input, and no constraints can ensure 100% correct input. 
+Constraints are chosen to guide the user, give writers of processing functions an idea of what data type to expect from the submitted form, and limit garbage data.
+However, all the constraints in the world can't prevent a user from mis-typing their name or number.
+
+
+Workflow:
+1. HR sends link to new staff member 
+(this could be a temporary link, or require a temporary login, to protect the form from unauthorised access)
+
+2. New user fills, confirms and submits form.
+
+3. In administraion portal, HR finds the completed form.
+HR is able to check the submitted data.
+
+4. Completed form has entry for 'Base Salary' and button to calculate and fill Tax and Super payment details.

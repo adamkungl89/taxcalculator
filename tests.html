@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="functions.js"></script>
+    </head>
+    <body>
+        <p>
+            Salary=10000, default options, expected tax=0 = <span id="test1" class="test"></span> <br>
+            Salary=20000, default options, expected tax=342 = <span id="test2" class="test"></span> <br>
+            Salary=30000, default options, expected tax=2242 = <span id="test3" class="test"></span> <br>
+            Salary=40000, default options, expected tax=4547 = <span id="test4" class="test"></span> <br>
+            Salary=50000, default options, expected tax=7797 = <span id="test5" class="test"></span> <br>
+            Salary=100000, default options, expected tax=24497 = <span id="test6" class="test"></span> <br>
+            Salary=245123, default options, expected tax=83402.35 = <span id="test7" class="test"></span> <br>
+            Salary=111111.11, default options, expected tax=28608.11 = <span id="test8" class="test"></span> <br>
+
+            Salary=0, default options, expected tax=0 = <span id="test9" class="test"></span> <br>
+            Salary=18200, default options, expected tax=0 = <span id="test10" class="test"></span> <br>
+            Salary=18201, default options, expected tax=0.19 = <span id="test11" class="test"></span> <br>
+            Salary=37000, default options, expected tax=3572 = <span id="test12" class="test"></span> <br>
+            Salary=37001, default options, expected tax=3572.32 = <span id="test13" class="test"></span> <br>
+            Salary=90000, default options, expected tax=20797 = <span id="test14" class="test"></span> <br>
+            Salary=90001, default options, expected tax=20797.37 = <span id="test15" class="test"></span> <br>
+            Salary=180000, default options, expected tax=54097 = <span id="test16" class="test"></span> <br>
+            Salary=180001, default options, expected tax=54097.45 = <span id="test17" class="test"></span> <br>
+
+            Salary=100000, options: threshold=Y helpdebt=Y, expected tax=30497 = <span id="test18" class="test"></span> <br>
+            Salary=100000, options: threshold=N helpdebt=Y, expected tax=33955 = <span id="test19" class="test"></span> <br>
+            Salary=100000, options: threshold=N helpdebt=N, expected tax=27955 = <span id="test20" class="test"></span> <br>
+
+            Salary=100000, options: inclusive=N, expected super=9500 = <span id="test21" class="test"></span> <br>
+            Salary=100000, options: inclusive=Y, expected super=8675.80 = <span id="test22" class="test"></span> <br>
+
+        </p>
+    </body>
+</html>
+
+<script>
+    $(document).ready(function() {
+        $("#test1").text(testTax(0, 10000));
+        $("#test2").text(testTax(342, 20000));
+        $("#test3").text(testTax(2242, 30000));
+        $("#test4").text(testTax(4547, 40000));
+        $("#test5").text(testTax(7797, 50000));
+        $("#test6").text(testTax(24497, 100000));
+        $("#test7").text(testTax(83402.35, 245123));
+        $("#test8").text(testTax(28608.11, 111111.11));
+
+        $("#test9").text(testTax(0, 0));
+        $("#test10").text(testTax(0, 18200));
+        $("#test11").text(testTax(0.19, 18201));
+        $("#test12").text(testTax(3572, 37000));
+        $("#test13").text(testTax(3572.32, 37001));
+        $("#test14").text(testTax(20797, 90000));
+        $("#test15").text(testTax(20797.37, 90001));
+        $("#test16").text(testTax(54097, 180000));
+        $("#test17").text(testTax(54097.45, 180001));
+
+        $("#test18").text(testTax(30497, 100000, "yes", "yes"));
+        $("#test19").text(testTax(33955, 100000, "no", "yes"));
+        $("#test20").text(testTax(27955, 100000, "no", "no"));
+
+        $("#test21").text(testSuper(9500, 100000, "no"));
+        $("#test22").text(testSuper(8675.80, 100000, "yes"));
+        
+        $(".test").each(function(){
+            if ($(this).text() == "PASS") {
+                $(this).css("background-color","lime");
+            } else if ($(this).text() == "FAIL") {
+                $(this).css("background-color","red");
+            }
+        });
+    });
+</script>
